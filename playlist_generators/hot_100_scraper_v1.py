@@ -4,8 +4,6 @@ import spotipy
 import spotipy.util as util
 import os
 
-
-
 def get_billboard_song_titles_for_year(year):
     """
     Scrapes Wikipedia  for billboard song titles for a given year, There might be better sources to parse from
@@ -27,16 +25,14 @@ def get_billboard_song_titles_for_year(year):
             year_data.append(tuple(row_data))
     return year_data
 
-
 def parse_artist(content):
     for split_token in [" & ", " \\ ", " feat ", " featuring ", " and "]:
-        content = content.partition(" & ")[0]
+        content = content.partition(split_token)[0]
     return content
-
 
 def parse_song(content):
     for split_token in ["\\", "/"]:
-        content = content.partition(" & ")[0]
+        content = content.partition(split_token)[0]
     return content
 
 if __name__ == "__main__":
