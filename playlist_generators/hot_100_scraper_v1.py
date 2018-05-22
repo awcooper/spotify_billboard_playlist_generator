@@ -52,7 +52,7 @@ if __name__ == "__main__":
     sp = spotipy.Spotify(auth=token)
 
     year = input("What year would you like to add to your profile?: ")
-    if not ( year.isdigit() and int(year) > 1960 ):
+    if not ( year.isdigit() and int(year) >= 1960 ):
         print("Error, You did not enter a valid year")
         exit(0)
 
