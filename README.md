@@ -53,6 +53,29 @@ late November or December.
 A full `all` run makes several thousand search requests and can take a while.
 Spotify rate limits are retried automatically.
 
+## Songs with 500M+ streams
+
+`billboard-streams` lists every Year-End Hot 100 song with at least a given
+number of all-time Spotify streams, most streamed first:
+
+```bash
+billboard-streams all                          # every year, 500M+ (default) → hot100_streams.csv
+billboard-streams 2010-2019 --min 1B -o 2010s_1b.csv
+billboard-streams all --playlist               # also save them as a Spotify playlist
+```
+
+The CSV has the stream count, title, artist, the year-end charts the song was
+on, its best year-end rank, and its Spotify link. A song on two year-end charts
+is listed once.
+
+Spotify's API doesn't give stream counts, so they come from
+[kworb.net](https://kworb.net/spotify/), which publishes each artist's
+per-track Spotify totals daily. A song released under several track IDs
+(single, album, deluxe) counts as its most streamed version. Pages are cached
+in `.kworb_cache.json` for 24 hours, and requests are spaced a second apart, so
+a first `all` run takes a while. Songs kworb doesn't track are reported and
+left out.
+
 ## How matching works
 
 For each chart entry the tool:

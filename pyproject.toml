@@ -19,6 +19,7 @@ dev = ["pytest>=8"]
 
 [project.scripts]
 billboard-playlist = "billboard_playlist.cli:main"
+billboard-streams = "billboard_playlist.streams_cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

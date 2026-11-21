@@ -104,3 +104,5 @@ ENV/
 .spotify_token_cache
 .cache
 misses.csv
+.kworb_cache.json
+hot100_streams.csv
