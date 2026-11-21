@@ -98,3 +98,9 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# Local secrets and Spotify token cache
+.env
+.spotify_token_cache
+.cache
+misses.csv
