@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "billboard-playlist"
+version = "2.0.0"
+description = "Create Spotify playlists from Billboard Year-End Hot 100 charts"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "spotipy>=2.26",          # first release with /me/playlists and /playlists/{id}/items
+    "requests>=2.31",
+    "beautifulsoup4>=4.12",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+billboard-playlist = "billboard_playlist.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
